@@ -94,7 +94,7 @@ function memCheck() {
 	} else if(memLevel == "medium") {
 
 	} else {
-		if("\"" + memGuess + "\"" == memPassword) {
+		if(memGuess.value == memPassword) {
 			memCorrectness.innerHTML = "Correct";
 			memUpdateScore(true);
 			memCorrectness.style.color = "#33CC33";
@@ -104,7 +104,7 @@ function memCheck() {
 			memCorrectness.style.color = "#CC2200";
 		}
 		skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
-		setTimeout(function(){memCorrectness.style.opacity = 1;},1000);
+		setTimeout(function(){memCorrectness.style.opacity = 0;},756);
 	}
 }
 
