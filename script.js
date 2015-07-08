@@ -82,7 +82,7 @@ function change(location) {
 function memStart() {
 	memPassword = memInput.value;
 	memInput.style.opacity = 0;
-	setTimeout(function(){memInput.style.display = "none";memInput.style.top = 75},750);
+	setTimeout(function(){memInput.style.display = "none";skipTransition(memInput,function(){memInput.style.top = 75})},750);
 	memGuess.style.display = "inline-block";
 	setTimeout(function(){memGuess.style.opacity = 1;memGuess.style.top = 15;},1);
 	memGuess.focus();
@@ -95,7 +95,7 @@ function memNewPassword() {
 	memPassword = "No password inputted yet";
 	memPass.innerHTML = memPassword;
 	memGuess.style.opacity = 0;
-	setTimeout(function(){memGuess.style.display = "none";memGuess.style.top = 75},750);
+	setTimeout(function(){memGuess.style.display = "none";skipTransition(memGuess,function(){memGuess.style.top = 75})},750);
 	memInput.style.display = "inline-block";
 	setTimeout(function(){memInput.style.opacity = 1;memInput.style.top = 15;},1);
 	memInput.focus();
