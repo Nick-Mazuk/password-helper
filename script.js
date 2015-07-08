@@ -166,7 +166,7 @@ function memUpdateScore(correct) {
 	if(memOverallScore.length > 10)
 		memScore.innerHTML = "Score over last 10: " + (Math.round(average(memOverallScore.slice(memOverallScore.length - 10,memOverallScore.length)) * 100)) + "%";
 	else
-		memScore.innerHTML = "Score over last 10: " + (Math.round(average(memOverallScore) * 100)) + "%";
+		memScore.innerHTML = "Score over last " + memOverallScore.length + ": " + (Math.round(average(memOverallScore) * 100)) + "%";
 }
 
 function memChangeLevel(location) {
