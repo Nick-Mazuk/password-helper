@@ -20,6 +20,8 @@ var memMedium;
 var memHard;
 var memLevel = "easy";
 var memRestart;
+var about;
+var aboutInformation
 
 //onload function
 window.addEventListener("load", function(){onLoad();});
@@ -42,6 +44,8 @@ function onLoad() {
 	memMedium = document.getElementById("memMedium");
 	memHard = document.getElementById("memHard");
 	memRestart = document.getElementById("memRestart");
+	about = document.getElementById("about");
+	aboutInformation = document.getElementById("aboutInformation");
 	validateLoc = generate.offsetWidth + 2 * generate.style.marginLeft + 4;
 	memorizeLoc = validateLoc + validate.offsetWidth + 2 * generate.style.marginLeft + 4;
 	generate.addEventListener("click", function(){change(1);});
@@ -52,6 +56,7 @@ function onLoad() {
 	memHard.addEventListener("click", function(){memChangeLevel(3);});
 	memShowPass.addEventListener("click", function(){memShowPassword()});
 	memRestart.addEventListener("click", function(){memNewPassword()});
+	about.addEventListener("click", function(){toggleAbout()});
 	memPass.style.display = "none";
 	memInput.onkeypress = function(e){if (!e) e = window.event;var keyCode = e.keyCode || e.which;if (keyCode == '13'){memStart();}}
 	memGuess.onkeypress = function(e){if (!e) e = window.event;var keyCode = e.keyCode || e.which;if (keyCode == '13'){memCheck();}}
@@ -215,6 +220,14 @@ function average(array) {
 	return sum / array.length;
 }
 
+function toggleAbout() {
+	if(aboutInformation.style.maxHeight != "0px" && aboutInformation.style.maxHeight != 0) {
+		aboutInformation.style.maxHeight = 0;
+	} else {
+		aboutInformation.style.maxHeight = 1000;
+	}
+	console.log(aboutInformation.style.maxHeight);
+}
 
 //code borrowed from Mozilla's X-Tag library http://www.x-tags.org/
 var prefix = (function () {
