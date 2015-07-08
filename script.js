@@ -116,6 +116,7 @@ function memCheck() {
 			skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
 			setTimeout(function(){memCorrectness.style.opacity = 0;},756);
 		} else {
+			memUpdateScore(false);
 			memCorrectness.innerHTML = "";
 			if(memGuess.value.length <= memPassword.length) {
 				for(i = 0; i < memGuess.value.length; i++) {
@@ -159,10 +160,11 @@ function memCheck() {
 }
 
 function memUpdateScore(correct) {
-	if(correct == true)
+	if(correct == true) {
 		memOverallScore.push(1);
-	else
+	} else {
 		memOverallScore.push(0);
+	}
 	if(memOverallScore.length > 10)
 		memScore.innerHTML = "Score over last 10: " + (Math.round(average(memOverallScore.slice(memOverallScore.length - 10,memOverallScore.length)) * 100)) + "%";
 	else
