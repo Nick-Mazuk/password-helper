@@ -10,6 +10,8 @@ var memContent;
 var memInput;
 var memGuess;
 var memCorrectness;
+var memScore;
+var memOverallScore = [];
 var memPass;
 var memShowPass;
 var memPassword = "No password inputted yet";
@@ -32,6 +34,7 @@ function onLoad() {
 	memInput = document.getElementById("memInput");
 	memGuess = document.getElementById("memGuess");
 	memCorrectness = document.getElementById("memCorrectness");
+	memScore = document.getElementById("memScore");
 	memPass = document.getElementById("memPass");
 	memShowPass = document.getElementById("memShowPass");
 	memEasy = document.getElementById("memEasy");
@@ -89,10 +92,40 @@ function memRestart() {
 }
 
 function memCheck() {
-	if(memLevel == "easy") {
-
-	} else if(memLevel == "medium") {
-
+	if(memLevel == "easy" || memLevel == "medium") {
+		if(memGuess.value == memPassword) {
+			memCorrectness.innerHTML = "Correct";
+			memUpdateScore(true);
+			memCorrectness.style.color = "#33CC33";
+			skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
+			setTimeout(function(){memCorrectness.style.opacity = 0;},756);
+		} else {
+			memCorrectness.innerHTML = "";
+			if(memGuess.value.length <= memPassword.length) {
+				for(i = 0; i < memGuess.value.length; i++) {
+					if(memGuess.value.substring(i,i+1) == memPassword.substring(i,i+1))
+						memCorrectness.innerHTML += memPassword.substring(i,i+1);
+					else 
+						memCorrectness.innerHTML += "&bull;";
+				}
+				for(i = memGuess.value.length; i < memPassword.length; i++)
+					memCorrectness.innerHTML += "_";
+				memCorrectness.style.color = "#CC2200";
+				skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
+				setTimeout(function(){memCorrectness.style.opacity = 0;},1000);
+			} else {
+				for(i = 0; i < memPassword.length; i++) {
+					if(memGuess.value.substring(i,i+1) == memPassword.substring(i,i+1))
+						memCorrectness.innerHTML += memPassword.substring(i,i+1);
+					else 
+						memCorrectness.innerHTML += "&bull;";
+				}
+				memCorrectness.innerHTML += "<del>" + memGuess.value.substring(memPassword.length,memGuess.value.length) + "</del>";
+				memCorrectness.style.color = "#CC2200";
+				skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
+				setTimeout(function(){memCorrectness.style.opacity = 0;},1000);
+			}
+		}
 	} else {
 		if(memGuess.value == memPassword) {
 			memCorrectness.innerHTML = "Correct";
@@ -106,10 +139,18 @@ function memCheck() {
 		skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
 		setTimeout(function(){memCorrectness.style.opacity = 0;},756);
 	}
+	memGuess.value = "";
 }
 
 function memUpdateScore(correct) {
-
+	if(correct == true)
+		memOverallScore.push(1);
+	else
+		memOverallScore.push(0);
+	if(memOverallScore.length > 10)
+		memScore.innerHTML = "Score over last 10: " + (Math.round(average(memOverallScore.slice(memOverallScore.length - 10,memOverallScore.length)) * 100)) + "%";
+	else
+		memScore.innerHTML = "Score over last 10: " + (Math.round(average(memOverallScore) * 100)) + "%";
 }
 
 function memChangeLevel(location) {
@@ -142,6 +183,13 @@ function memShowPassword() {
 		memShowPass.innerHTML = "Show your password";
 		memPass.style.display = "none";
 	}
+}
+
+function average(array) {
+	var sum = 0;
+	for(i = 0; i < array.length; i++)
+		sum += array[i];
+	return sum / array.length;
 }
 
 
