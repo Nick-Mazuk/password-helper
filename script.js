@@ -64,20 +64,20 @@ function onLoad() {
 
 function change(location) {
 	if(location == 1) {
-		page.style.width = generate.offsetWidth;
-		page.style.marginLeft = "0";
+		page.style.width = generate.offsetWidth + "px";
+		page.style.marginLeft = "0px";
 		genContent.classList.remove("notShown");
 		valContent.classList.add("notShown");
 		memContent.classList.add("notShown");
 	} else if (location == 2) {
-		page.style.width = validate.offsetWidth;
-		page.style.marginLeft = validateLoc;
+		page.style.width = validate.offsetWidth + "px";
+		page.style.marginLeft = validateLoc + "px";
 		genContent.classList.add("notShown");
 		valContent.classList.remove("notShown");
 		memContent.classList.add("notShown");
 	} else {
-		page.style.width = memorize.offsetWidth;
-		page.style.marginLeft = memorizeLoc;
+		page.style.width = memorize.offsetWidth + "px";
+		page.style.marginLeft = memorizeLoc + "px";
 		genContent.classList.add("notShown");
 		valContent.classList.add("notShown");
 		memContent.classList.remove("notShown");
@@ -87,9 +87,9 @@ function change(location) {
 function memStart() {
 	memPassword = memInput.value;
 	memInput.style.opacity = 0;
-	setTimeout(function(){memInput.style.display = "none";skipTransition(memInput,function(){memInput.style.top = 75})},750);
+	setTimeout(function(){memInput.style.display = "none";skipTransition(memInput,function(){memInput.style.top = "75px"})},750);
 	memGuess.style.display = "inline-block";
-	setTimeout(function(){memGuess.style.opacity = 1;memGuess.style.top = 15;},1);
+	setTimeout(function(){memGuess.style.opacity = 1;memGuess.style.top = "15px";},1);
 	memGuess.focus();
 	memPass.innerHTML = memPassword;
 	memShowPass.style.display = "block";
@@ -100,9 +100,9 @@ function memNewPassword() {
 	memPassword = "No password inputted yet";
 	memPass.innerHTML = memPassword;
 	memGuess.style.opacity = 0;
-	setTimeout(function(){memGuess.style.display = "none";skipTransition(memGuess,function(){memGuess.style.top = 75})},750);
+	setTimeout(function(){memGuess.style.display = "none";skipTransition(memGuess,function(){memGuess.style.top = "75px"})},750);
 	memInput.style.display = "inline-block";
-	setTimeout(function(){memInput.style.opacity = 1;memInput.style.top = 15;},1);
+	setTimeout(function(){memInput.style.opacity = 1;memInput.style.top = "15px";},1);
 	memInput.focus();
 	memShowPass.style.display = "none";
 }
