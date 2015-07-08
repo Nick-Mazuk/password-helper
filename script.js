@@ -226,7 +226,6 @@ function toggleAbout() {
 	} else {
 		aboutInformation.style.maxHeight = 1000;
 	}
-	console.log(aboutInformation.style.maxHeight);
 }
 
 //code borrowed from Mozilla's X-Tag library http://www.x-tags.org/
