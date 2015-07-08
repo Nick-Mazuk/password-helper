@@ -1,0 +1,155 @@
+html {
+	font-family: "Roboto", sans-serif;
+	background-color:#222222;
+	color:#DDDDDD;
+}
+
+body {
+	margin:6px auto;
+	max-width:800px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 2px;
+	padding-bottom: 0;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.centerWrapper {
+	text-align: center;
+}
+
+#nav {
+	display:inline-block;
+	margin-bottom:24px;
+}
+
+.navButton {
+	display:inline-block;
+	margin:0;
+	padding:6px 10px 1px 10px;
+	font-size:1.25em;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+#page {
+	background-color: #CC2200;
+	height:4px;
+	width:101px;
+	margin-left:0;
+	-webkit-transition: width 0.75s, margin-left 0.75s; /* Safari */
+    transition: width 0.75s, margin-left 0.75s;
+}
+
+#contentWrapper {
+	position:relative;
+}
+
+.content {
+    width:100%;
+    padding-bottom: 16px;
+}
+
+.notShown {
+	display:none;
+}
+
+#footer {
+	margin-top:24px;
+	color:#999999;
+}
+
+input[type=text], input[type=password] {
+	background-color: transparent;
+	color:#DDDDDD;
+	font-size:1em;
+	font-family: "Roboto", sans-serif;
+	border:none;
+	border-bottom:1px solid #DDDDDD;
+}
+
+input:focus {
+	outline:none;
+}
+
+input[type=button] {
+	background-color: transparent;
+	color:#DDDDDD;
+	font-size:1em;
+	font-family: "Roboto", sans-serif;
+}
+
+#memContent {
+	min-height: 400px
+}
+
+#memInputWrapper {
+	height:100px;
+}
+
+#memInput {
+	display:inline-block;
+	font-size:1.5em;
+	-webkit-transition: opacity 0.75s, top 0.75s;/* Safari */
+    transition: opacity 0.75s, top 0.75s;
+    position:absolute;
+    width:250px;
+    left:0;
+    top:15px;
+}
+
+#memGuess {
+	font-size:1.5em;
+	position:absolute;
+	display: none;
+	top:75px;
+	opacity:0;
+	width:250px;
+	left:0;
+	-webkit-transition: opacity 0.75s, top 0.75s; /* Safari */
+    transition: opacity 0.75s, top 0.75s;
+}
+
+#memCorrectness {
+	opacity:0;
+	-webkit-transition: opacity 0.75s; /* Safari */
+    transition: opacity 0.75s;
+}
+
+#memShowPass {
+	display:none;
+}
+
+#memPass {
+	display:none;
+}
+
+#numLevelsWrapper {
+	position:absolute;
+	bottom:40px;
+	width:100%;
+}
+
+#memLevels {
+	display:inline-block;
+}
+
+#memLevels div {
+	display:inline-block;
+	margin:0;
+	padding:6px 10px 6px 10px;
+	-webkit-transition: background-color 0.75s, color 0.75s; /* Safari */
+    transition: background-color 0.75s, color 0.75s;
+}
+
+.memLevelSelected {
+	background-color:#BBBBBB;
+	color:#333333;
+}
+
+#memRestart {
+	position:absolute;
+	right:0;
+	bottom:0;
+}

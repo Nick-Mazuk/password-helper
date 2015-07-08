@@ -1,0 +1,51 @@
+<head>
+	<title>Password Helper</title>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="container">
+		<h1>Password Helper</h1>
+		<div class="centerWrapper">
+			<div id="nav">
+				<div id="generate" class="navButton">Generate</div>
+				<div id="validate" class="navButton">Validate</div>
+				<div id="memorize" class="navButton">Memorize</div>
+				<div id="page"></div>
+			</div>
+		</div>
+		<div id="contentWrapper">
+			<div id="genContent" class="content notShown">Generate Content</div>
+			<div id="valContent" class="content notShown">Validate Content</div>
+			<div id="memContent" class="content">
+				Passwords, especially secure ones, are often difficult to memorize. While writting them down is one option, it is not a secure as memorizing it.<br><br>
+				<div id="memInputWrapper" class="centerWrapper">
+					<div style="display:inline-block; position:relative;width:250px;">
+						<input type="text" id="memInput" placeholder="password to memorize">
+						<input type="text" id="memGuess" placeholder="guess here">
+					</div>
+				</div>
+				<div class="centerWrapper">
+					<div id="memCorrectness">No guess inputted</div>
+				</div>
+				<div id="memShowPass">Show your password</div>
+				<div id="memPass">No password inputted yet</div>
+				<div id="numLevelsWrapper" class="centerWrapper">
+					<div id="memLevels">
+						<div id="memEasy" class="memLevelSelected">Easy</div>
+						<div id="memMedium">Medium</div>
+						<div id="memHard">Hard</div>
+					</div>
+				</div>
+				<input type="button" id="memRestart" value="New Password">
+			</div>
+		</div>
+		<div id="footer">
+			<i>Note: No information about your password or any other personal information is stored anywhere. Simply leaving or refreshing the page will delete all information generated or inputed.</i>
+			<div id="about">
+				About
+			</div>
+		</div>
+	</div>
+</body>
