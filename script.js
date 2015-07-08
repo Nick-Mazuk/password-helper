@@ -21,7 +21,7 @@ var memHard;
 var memLevel = "easy";
 var memRestart;
 var about;
-var aboutInformation
+var aboutInformation;
 
 //onload function
 window.addEventListener("load", function(){onLoad();});
@@ -221,10 +221,13 @@ function average(array) {
 }
 
 function toggleAbout() {
+	console.log("clicked");
 	if(aboutInformation.style.maxHeight != "0px" && aboutInformation.style.maxHeight != 0) {
-		aboutInformation.style.maxHeight = 0;
+		aboutInformation.style.maxHeight = "0px";
 	} else {
-		aboutInformation.style.maxHeight = 1000;
+		console.log("next2");
+		aboutInformation.style.maxHeight = "1000px";
+		console.log("next3");
 	}
 }
 
