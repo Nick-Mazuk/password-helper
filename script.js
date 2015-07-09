@@ -5,8 +5,21 @@ var validateLoc;
 var memorizeLoc;
 var page;
 var genContent;
+var genAlphabet;
+var genNumbers;
+var genPunctuation;
+var genOtherNonaplhanumericCharacters;
+var genAlphabetList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var genNumbersList = "0123456789";
+var genPunctuationList = "!&;:'\",.?()";
+var genOtherNonalphanumericCharactersList = "`~@#$%^*-+=|\\{}[]<>/";
 var genCustomCharCheck;
 var genCustomChar;
+var genMin;
+var genMax;
+var genSpecificLength;
+var genGenerate;
+var genPassword;
 var valContent;
 var memContent;
 var memInput;
@@ -33,8 +46,17 @@ function onLoad() {
 	memorize = document.getElementById("memorize");
 	page = document.getElementById("page");
 	genContent = document.getElementById("genContent");
+	genAlphabet = document.getElementById("genAlphabet");
+	genNumbers = document.getElementById("genNumbers");
+	genPunctuation = document.getElementById("genPunctuation");
+	genOtherNonalphanumericCharacters = document.getElementById("genOtherNonalphanumericCharacters");
 	genCustomCharCheck = document.getElementById("genCustomCharCheck");
 	genCustomChar = document.getElementById("genCustomChar");
+	genMin = document.getElementById("genMin");
+	genMax = document.getElementById("genMax");
+	genSpecificLength = document.getElementById("genSpecificLength");
+	genGenerate = document.getElementById("genGenerate");
+	genPassword = document.getElementById("genPassword");
 	valContent = document.getElementById("valContent");
 	memContent = document.getElementById("memContent");
 	memInput = document.getElementById("memInput");
@@ -54,6 +76,7 @@ function onLoad() {
 	generate.addEventListener("click", function(){change(1);});
 	validate.addEventListener("click", function(){change(2);});
 	memorize.addEventListener("click", function(){change(3);});
+	genGenerate.addEventListener("click", function(){genGeneratePassword();});
 	memEasy.addEventListener("click", function(){memChangeLevel(1);});
 	memMedium.addEventListener("click", function(){memChangeLevel(2);});
 	memHard.addEventListener("click", function(){memChangeLevel(3);});
@@ -93,6 +116,45 @@ function genCustomCharChange() {
 	} else {
 		genCustomCharCheck.checked = false;
 	}
+}
+
+function genGeneratePassword() {
+	var length;
+	if(genSpecificLength.value != "") {
+		length = parseInt(genSpecificLength.value);
+	} else {
+		var min = 8;
+		var max = 16;
+		if(genMax.value != "") {
+			max = parseInt(genMax.value);
+		}
+		if(genMin.value != "") {
+			min = parseInt(genMin.value);
+		}
+		length = parseInt(Math.min(min,max) + (Math.abs(max - min) + 1) * Math.random());
+	}
+	var characterList = "";
+	if(genAlphabet.checked) {
+		characterList += genAlphabetList;
+	}
+	if(genNumbers.checked) {
+		characterList += genNumbersList;
+	}
+	if(genPunctuation.checked) {
+		characterList += genPunctuationList;
+	}
+	if(genOtherNonalphanumericCharacters.checked) {
+		characterList += genOtherNonalphanumericCharactersList;
+	}
+	if(genCustomCharCheck.checked) {
+		characterList += genCustomChar.value;
+	}
+	var output = "";
+	for(i = 0; i < length; i++) {
+		var location = parseInt(Math.random() * characterList.length);
+		output += characterList.substring(location,location + 1);
+	}
+	genPassword.innerHTML = output;
 }
 
 function memStart() {
