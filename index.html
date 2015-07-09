@@ -18,9 +18,21 @@
 			</div>
 		</div>
 		<div id="contentWrapper">
-			<div id="genContent" class="content notShown">Generate Content</div>
+			<div id="genContent" class="content">
+				Select character sets do you wish to use:<br>
+				<input type="checkbox" id="genAlphabet" value="Alphabet" checked><label for="genAlphabet">Alphabet</label><br>
+				<input type="checkbox" id="genNumbers" value="Numbers" checked><label for="genNumbers">Numbers</label><br>
+				<input type="checkbox" id="genPunctuation" value="Punctuation"><label for="genPunctuation">Punctuation</label><br>
+				<input type="checkbox" id="genOtherNonaplhanumericCharacters" value="OtherNonaplhanumericCharacters"><label for="genOtherNonaplhanumericCharacters">Other Nonaplhanumeric Characters</label><br>
+				<!--<input type="checkbox" id="genDiacriticalMarks" value="DiacriticalMarks"><label for="genDiacriticalMarks">Diacritical Marks</label><br>-->
+				<input type="checkbox" id="genCustomCharCheck" value="CustomCharCheck"><input type="text" id="genCustomChar" placeholder="Custom Characters" onchange="genCustomCharChange();"><br><br>
+				Input the length of your desired password:<br>
+				Minimum Length: <input type="text" id="genMin" placeholder="Minimum length"><br>
+				Maximum Length: <input type="text" id="genMax" placeholder="Maximum length"><br>
+				Specific Length: <input type="text" id="genSpecificLength" placeholder="Specific length"><br>
+			</div>
 			<div id="valContent" class="content notShown">Validate Content</div>
-			<div id="memContent" class="content">
+			<div id="memContent" class="content notShown">
 				Passwords, especially secure ones, are often difficult to memorize. While writting them down is one option, it is not a secure as memorizing it.<br><br>
 				<div id="memInputWrapper" class="centerWrapper">
 					<div style="display:inline-block; position:relative;width:250px;">

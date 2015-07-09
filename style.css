@@ -74,6 +74,10 @@ input[type=text], input[type=password] {
 	border-bottom:1px solid #DDDDDD;
 }
 
+input[type=checkbox]:focus {
+	outline:auto;
+}
+
 input:focus {
 	outline:none;
 }

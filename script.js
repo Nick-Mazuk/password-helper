@@ -5,6 +5,8 @@ var validateLoc;
 var memorizeLoc;
 var page;
 var genContent;
+var genCustomCharCheck;
+var genCustomChar;
 var valContent;
 var memContent;
 var memInput;
@@ -31,6 +33,8 @@ function onLoad() {
 	memorize = document.getElementById("memorize");
 	page = document.getElementById("page");
 	genContent = document.getElementById("genContent");
+	genCustomCharCheck = document.getElementById("genCustomCharCheck");
+	genCustomChar = document.getElementById("genCustomChar");
 	valContent = document.getElementById("valContent");
 	memContent = document.getElementById("memContent");
 	memInput = document.getElementById("memInput");
@@ -80,6 +84,14 @@ function change(location) {
 		genContent.classList.add("notShown");
 		valContent.classList.add("notShown");
 		memContent.classList.remove("notShown");
+	}
+}
+
+function genCustomCharChange() {
+	if(genCustomChar.value.length > 0) {
+		genCustomCharCheck.checked = true;
+	} else {
+		genCustomCharCheck.checked = false;
 	}
 }
 
