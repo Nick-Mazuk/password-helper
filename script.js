@@ -299,13 +299,10 @@ function average(array) {
 }
 
 function toggleAbout() {
-	console.log("clicked");
 	if(aboutInformation.style.maxHeight != "0px" && aboutInformation.style.maxHeight != 0) {
 		aboutInformation.style.maxHeight = "0px";
 	} else {
-		console.log("next2");
 		aboutInformation.style.maxHeight = "1000px";
-		console.log("next3");
 	}
 }
 

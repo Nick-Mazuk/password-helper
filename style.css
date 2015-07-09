@@ -41,6 +41,10 @@ h2,h3,h4,h5,h6 {
 	text-shadow: 2px 2px 4px #000000;
 }
 
+.navButton:hover {
+	cursor:pointer;
+}
+
 #page {
 	background-color: #CC2200;
 	height:4px;
@@ -173,13 +177,14 @@ input[type=button] {
 	color:#999999;
 }
 
-#about h2, #about h3 {
+#about h2, #aboutInformation h3 {
 	padding-bottom:0;
 	margin-bottom:-0.5em;
 }
 
 #about:hover {
 	color:#777777;
+	cursor:pointer;
 }
 
 #aboutInformation {
