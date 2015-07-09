@@ -1,4 +1,4 @@
-var generate;
+var generate; //The HTML IDs are the variable names
 var validate;
 var memorize;
 var validateLoc;
@@ -23,7 +23,6 @@ var memRestart;
 var about;
 var aboutInformation;
 
-//onload function
 window.addEventListener("load", function(){onLoad();});
 
 function onLoad() {
@@ -87,9 +86,9 @@ function change(location) {
 function memStart() {
 	memPassword = memInput.value;
 	memInput.style.opacity = 0;
-	setTimeout(function(){memInput.style.display = "none";skipTransition(memInput,function(){memInput.style.top = "75px"})},750);
+	setTimeout(function(){memInput.style.display = "none";skipTransition(memInput,function(){memInput.style.top = "100px"})},750);
 	memGuess.style.display = "inline-block";
-	setTimeout(function(){memGuess.style.opacity = 1;memGuess.style.top = "15px";},1);
+	setTimeout(function(){memGuess.style.opacity = 1;memGuess.style.top = "45px";},1);
 	memGuess.focus();
 	memPass.innerHTML = memPassword;
 	memShowPass.style.display = "block";
@@ -100,9 +99,9 @@ function memNewPassword() {
 	memPassword = "No password inputted yet";
 	memPass.innerHTML = memPassword;
 	memGuess.style.opacity = 0;
-	setTimeout(function(){memGuess.style.display = "none";skipTransition(memGuess,function(){memGuess.style.top = "75px"})},750);
+	setTimeout(function(){memGuess.style.display = "none";skipTransition(memGuess,function(){memGuess.style.top = "100px"})},750);
 	memInput.style.display = "inline-block";
-	setTimeout(function(){memInput.style.opacity = 1;memInput.style.top = "15px";},1);
+	setTimeout(function(){memInput.style.opacity = 1;memInput.style.top = "45px";},1);
 	memInput.focus();
 	memShowPass.style.display = "none";
 }
@@ -113,11 +112,13 @@ function memCheck() {
 			memCorrectness.innerHTML = "Correct";
 			memUpdateScore(true);
 			memCorrectness.style.color = "#33CC33";
+			memCorrectness.style.fontSize = "1em";
 			skipTransition(memCorrectness,function(){memCorrectness.style.opacity = 1;});
 			setTimeout(function(){memCorrectness.style.opacity = 0;},756);
 		} else {
 			memUpdateScore(false);
 			memCorrectness.innerHTML = "";
+			memCorrectness.style.fontSize = "1.5em";
 			if(memGuess.value.length <= memPassword.length) {
 				for(i = 0; i < memGuess.value.length; i++) {
 					if(memGuess.value.substring(i,i+1) == memPassword.substring(i,i+1))
@@ -144,6 +145,7 @@ function memCheck() {
 			}
 		}
 	} else {
+		memCorrectness.style.fontSize = "1em";
 		if(memGuess.value == memPassword) {
 			memCorrectness.innerHTML = "Correct";
 			memUpdateScore(true);
