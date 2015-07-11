@@ -93,6 +93,56 @@ input[type=button] {
 	font-family: "Roboto", sans-serif;
 }
 
+#valInput {
+	text-align: center;
+}
+
+#valScoreContainer {
+	padding:50px;
+}
+
+#valPercentage {
+	font-size:4.5em;
+	text-shadow: 2px 2px 8px #000000;
+}
+
+#valScoreBar {
+	height:6px;
+	width:250px;
+	background-color: #AAAAAA;
+	border-radius: 6px;
+	display:inline-block;
+}
+
+#valScoreBarInner {
+	height:100%;
+	width:100%;
+	border-radius: 6px; /*NEED TO MAKE SURE THAT THESE GRADIENTS ARE AT A DIFFERENT ANGLE*/
+	background: -webkit-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* Standard syntax (must be last) */
+}
+
+#valCategories {
+	border:none;
+	width:100%;
+	text-align:center;
+	margin-bottom:50px;
+}
+
+#valCategories td {
+	width:33.33%;
+}
+
+#valCategories td *:hover {
+	/*code to show help with specifics upon hovering*/
+}
+
+#valFixes {
+	color:#CC2200;
+}
+
 #memContent {
 	min-height: 380px;
 }

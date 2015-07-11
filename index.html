@@ -18,22 +18,52 @@
 			</div>
 		</div>
 		<div id="contentWrapper">
-			<div id="genContent" class="content">
+			<div id="genContent" class="content notShown">
 				Select character sets do you wish to use:<br>
 				<input type="checkbox" id="genAlphabet" value="Alphabet" checked><label for="genAlphabet">Alphabet</label><br>
 				<input type="checkbox" id="genNumbers" value="Numbers" checked><label for="genNumbers">Numbers</label><br>
 				<input type="checkbox" id="genPunctuation" value="Punctuation"><label for="genPunctuation">Punctuation</label><br>
-				<input type="checkbox" id="genOtherNonalphanumericCharacters" value="OtherNonaplhanumericCharacters"><label for="genOtherNonaplhanumericCharacters">Other Nonaplhanumeric Characters</label><br>
+				<input type="checkbox" id="genOtherNonalphanumericCharacters" value="OtherNonaplhanumericCharacters"><label for="genOtherNonalphanumericCharacters">Other Nonaplhanumeric Characters</label><br>
 				<!--<input type="checkbox" id="genDiacriticalMarks" value="DiacriticalMarks"><label for="genDiacriticalMarks">Diacritical Marks</label><br>-->
 				<input type="checkbox" id="genCustomCharCheck" value="CustomCharCheck"><input type="text" id="genCustomChar" placeholder="Custom Characters" onchange="genCustomCharChange();"><br><br>
 				Input the length of your desired password:<br>
-				Minimum Length: <input type="text" id="genMin" placeholder="8"><br>
+				Minimum Length: <input type="text" id="genMin" placeholder="10"><br>
 				Maximum Length: <input type="text" id="genMax" placeholder="16"><br>
 				Specific Length: <input type="text" id="genSpecificLength" placeholder="Specific length"><br><br>
 				<input type="button" id="genGenerate" value="Generate Password"><br><br>
-				<div id="genPassword"></div>
+				<div class="centerWrapper">
+					<div id="genPassword"></div>
+				</div>
 			</div>
-			<div id="valContent" class="content notShown">Validate Content</div>
+			<div id="valContent" class="content">
+				<div class="centerWrapper">
+					<input type="text" id="valInput" placeholder="input password">
+				</div>
+				<div id="valScoreContainer" class="centerWrapper">
+					<div id="valPercentage">78%</div>
+					<div id="valScoreBar"><div id="valScoreBarInner"></div></div>
+				</div>
+				<table id="valCategories">
+					<tr>
+						<td>
+							<div id="valLength">
+								Length: 60%
+							</div>
+						</td>
+						<td>
+							<div id="valVariety">
+								Variety: 80%
+							</div>
+						</td>
+						<td>
+							<div id="valPatterns">
+								Patterns: 100%
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div id="valFixes"></div>
+			</div>
 			<div id="memContent" class="content notShown">
 				Passwords, especially secure ones, are often difficult to memorize. While writting them down is one option, it is not a secure as memorizing it.<br><br>
 				<div id="memInputWrapper" class="centerWrapper">
