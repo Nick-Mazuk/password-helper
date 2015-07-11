@@ -118,10 +118,10 @@ input[type=button] {
 	height:100%;
 	width:100%;
 	border-radius: 6px; /*NEED TO MAKE SURE THAT THESE GRADIENTS ARE AT A DIFFERENT ANGLE*/
-	background: -webkit-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#00CC00 250px); /* Standard syntax (must be last) */
+	background: -webkit-linear-gradient(to right,#CC2200 150px,#CCCC00 175px, #CCCC00 200px,#00CC00 250px); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#CC2200 150px,#CCCC00 175px, #CCCC00 200px,#00CC00 250px); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#CC2200 150px,#CCCC00 175px, #CCCC00 200px,#00CC00 250px); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#CC2200 150px,#CCCC00 175px, #CCCC00 200px,#00CC00 250px); /* Standard syntax (must be last) */
 }
 
 #valCategories {
@@ -135,9 +135,30 @@ input[type=button] {
 	width:33.33%;
 }
 
-#valCategories td *:hover {
-	/*code to show help with specifics upon hovering*/
+#valCategories td { 
+    position:relative; 
+    z-index:24;
+} 
+
+#valCategories td span.hover:hover {
+	z-index:25;
 }
+
+#valCategories td span.hover {
+	display: none;
+	background-color: #555555;
+	max-width: 70%;
+	font-size:0.75em;
+	padding:0.35em;
+} 
+
+#valCategories td:hover span.hover { 
+	display:block; 
+	position:absolute;
+	top:0.5em;
+	left:25px;
+	border:2px solid #CC2200;  
+} 
 
 #valFixes {
 	color:#CC2200;

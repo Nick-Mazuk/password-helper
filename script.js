@@ -253,12 +253,15 @@ function valAnalyzePatterns(password) {
 			var leet = valToLeet(checkList[i][j].toLowerCase());
 			for(k = 1; k < leet.length; k++) {
 				if(password.indexOf(leet[k]) != -1) {
-					valFixes.innerHTML += "Remove the Leet Speak version of \"" + leet[0] + "\"<br>";
+					valFixes.innerHTML += "Remove the Leet Speak version of \"" + leet[0] + "\"<br>"; //BUG: for some reason words with an E (3) get documented twice. The loop runds twice without changing the value of k
+					count += 0.5;
+					/*console.log(leet)
+					console.log(k);*/
 				}
 			}
 		}
 	}
-	console.log(count);
+	//console.log(count);
 	return 50;
 }
 
