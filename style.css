@@ -147,7 +147,7 @@ input[type=button] {
 #valCategories td span {
 	display: none;
 	background-color: #555555;
-	max-width: 70%;
+	max-width: 65%;
 	font-size:0.75em;
 	padding:0.35em;
 } 

@@ -203,9 +203,9 @@ function valAnalyzeLength(password) {
 	if(score > 100) {
 		score = 100;
 	}
-	valLength.innerHTML = "Length: " + score + "%";
+	valLength.innerHTML = "Length: " + score + "%<span>Tests the length of the password. The longer the password, generally the more secure the password.</span>";
 	if(password.length < 10) {
-		valFixes.innerHTML += "Short password, add at least " + (10 - password.length) + " characters<br>"
+		valFixes.innerHTML += "Short password, add at least " + (10 - password.length) + " characters<br>";
 	}
 	return score;
 }
@@ -217,7 +217,7 @@ function valAnalyzeVariety(password) {
 	score += valAnalyzeVarietyHelper(password,genNumbersList,"numbers"); //gets numbers
 	score += valAnalyzeVarietyHelper(password,genPunctuationList + genOtherNonalphanumericCharactersList,"non alphanumeric characters");
 	score = score / 8 * 100
-	valVariety.innerHTML = "Variety: " + Math.round(score) + "%";
+	valVariety.innerHTML = "Variety: " + Math.round(score) + "%<span>Tests to make sure there are a variety of types of characters. The more variety, generally the more secure the password.</span>";
 	return score;
 }
 
@@ -266,7 +266,7 @@ function valAnalyzePatterns(password) {
 }
 
 function valToLeet(word) {
-	var list = [word];//figure out a way to make a single word be all permutations of L33T SP34k, including different substitutions when possible.
+	var list = [word];
 	var leetList = [["o","0"],["e","3"]];
 	for(l = 0; l < word.length; l++) {
 		for(m = 0; m < leetList.length; m++) {
