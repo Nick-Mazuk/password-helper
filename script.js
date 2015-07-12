@@ -248,21 +248,21 @@ function valAnalyzePatterns(password) {
 				continue;
 			}
 			if(password.indexOf(checkList[i][j].toLowerCase()) != -1) {
-				count += 20 / (i + 1);
+				count += 20 / Math.floor((j + 1)/1000);
 				valFixes.innerHTML += "Remove the word \"" + checkList[i][j].toLowerCase() + "\"<br>";
 			}
 			var leet = valToLeet(checkList[i][j].toLowerCase());
 			for(k = 1; k < leet.length; k++) {
 				if(password.indexOf(leet[k]) != -1) {
 					valFixes.innerHTML += "Remove the Leet Speak version of \"" + leet[0] + "\"<br>"; 
-					count += 10 / (i + 1);
+					count += 10 / Math.ceil((j + 1)/1000);
 				}
 			}
 		}
 	}
 	for(i = 0; i < commonPasswords.length; i++) {
 		if(password.indexOf(commonPasswords[i].toLowerCase()) != -1) {
-			count += 1000 / i;
+			count += 200 / Math.ceil((i + 1) / 1000);
 			valFixes.innerHTML += "Remove common password #" + (i + 1) + ": \"" + commonPasswords[i].toLowerCase() + "\" now<br>";
 		}
 	}
