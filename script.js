@@ -99,6 +99,7 @@ function onLoad() {
 	valInput.onkeypress = function(e){if (!e) e = window.event;var keyCode = e.keyCode || e.which;if (keyCode == '13'){valAnalyze();}}
 	memInput.onkeypress = function(e){if (!e) e = window.event;var keyCode = e.keyCode || e.which;if (keyCode == '13'){memStart();}}
 	memGuess.onkeypress = function(e){if (!e) e = window.event;var keyCode = e.keyCode || e.which;if (keyCode == '13'){memCheck();}}
+	change(2);
 }
 
 function change(location) {
@@ -203,7 +204,7 @@ function valAnalyzeLength(password) {
 	if(score > 100) {
 		score = 100;
 	}
-	valLength.innerHTML = "Length: " + score + "%<span>Tests the length of the password. The longer the password, generally the more secure the password.</span>";
+	valLength.innerHTML = "<img src=\"Pictures/length.png\"><br>Length: " + score + "%<span>Tests the length of the password. The longer the password, generally the more secure the password.</span>";
 	if(password.length < 10) {
 		valFixes.innerHTML += "Short password, add at least " + (10 - password.length) + " characters<br>";
 	}
@@ -217,7 +218,7 @@ function valAnalyzeVariety(password) {
 	score += valAnalyzeVarietyHelper(password,genNumbersList,"numbers"); //gets numbers
 	score += valAnalyzeVarietyHelper(password,genPunctuationList + genOtherNonalphanumericCharactersList,"non alphanumeric characters");
 	score = score / 8 * 100
-	valVariety.innerHTML = "Variety: " + Math.round(score) + "%<span>Tests to make sure there are a variety of types of characters. The more variety, generally the more secure the password.</span>";
+	valVariety.innerHTML = "<img src=\"Pictures/variety.png\"><br>Variety: " + Math.round(score) + "%<span>Tests to make sure there are a variety of types of characters. The more variety, generally the more secure the password.</span>";
 	return score;
 }
 
@@ -247,14 +248,14 @@ function valAnalyzePatterns(password) {
 				continue;
 			}
 			if(password.indexOf(checkList[i][j].toLowerCase()) != -1) {
-				count += 20/i;
+				count += 20 / (i + 1);
 				valFixes.innerHTML += "Remove the word \"" + checkList[i][j].toLowerCase() + "\"<br>";
 			}
 			var leet = valToLeet(checkList[i][j].toLowerCase());
 			for(k = 1; k < leet.length; k++) {
 				if(password.indexOf(leet[k]) != -1) {
 					valFixes.innerHTML += "Remove the Leet Speak version of \"" + leet[0] + "\"<br>"; 
-					count += 10/i;
+					count += 10 / (i + 1);
 				}
 			}
 		}
@@ -262,14 +263,14 @@ function valAnalyzePatterns(password) {
 	for(i = 0; i < commonPasswords.length; i++) {
 		if(password.indexOf(commonPasswords[i].toLowerCase()) != -1) {
 			count += 1000 / i;
-			valFixes.innerHTML += "Remove common password #" + i + ": \"" + commonPasswords[i].toLowerCase() + "\" now<br>";
+			valFixes.innerHTML += "Remove common password #" + (i + 1) + ": \"" + commonPasswords[i].toLowerCase() + "\" now<br>";
 		}
 	}
-	var score = 100 - count;
+	var score = 100 - Math.round(count);
 	if(score < 0) {
 		score = 0;
 	}
-	valPatterns.innerHTML = "Patterns: " + score + "%<span>Tests for known patterns and common passwords. The more patterns, generally the less secure the password.</span>"
+	valPatterns.innerHTML = "<img src=\"Pictures/patterns.png\"><br>Patterns: " + score + "%<span>Tests for known patterns and common passwords. The more patterns, generally the less secure the password.</span>"
 	return score;
 }
 
