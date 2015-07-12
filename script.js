@@ -180,9 +180,8 @@ function valAnalyze() {
 	valFixes.innerHTML = "";
 	var lengthScore = valAnalyzeLength(password);
 	var varietyScore = valAnalyzeVariety(password);
-	var wordScore = valAnalyzePatterns(password);
-	var scores = [lengthScore,varietyScore,wordScore];
-	var score = Math.round(average(scores));
+	var patternScore = valAnalyzePatterns(password);
+	var score = Math.round(0.2 * lengthScore + 0.2 * varietyScore + 0.6 * patternScore);
 	valScoreBarInner.style.width = score + "%";
 	if(score <= 60) {
 		valPercentage.style.color = "#CC2200";
@@ -248,14 +247,14 @@ function valAnalyzePatterns(password) {
 				continue;
 			}
 			if(password.indexOf(checkList[i][j].toLowerCase()) != -1) {
-				count++;
+				count += 20/i;
 				valFixes.innerHTML += "Remove the word \"" + checkList[i][j].toLowerCase() + "\"<br>";
 			}
 			var leet = valToLeet(checkList[i][j].toLowerCase());
 			for(k = 1; k < leet.length; k++) {
 				if(password.indexOf(leet[k]) != -1) {
 					valFixes.innerHTML += "Remove the Leet Speak version of \"" + leet[0] + "\"<br>"; 
-					count += 0.5;
+					count += 10/i;
 				}
 			}
 		}
