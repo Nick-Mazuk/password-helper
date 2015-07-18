@@ -202,8 +202,8 @@ function valAnalyze() {
 		valPercentage.style.color = "#00CC00";
 	}
 	valPercentage.innerHTML = score + "%";
-	valScoreContainer.style.opacity = 1;
-	valCategories.style.opacity = 1;
+	valScoreContainer.style.opacity = "1";
+	valCategories.style.opacity = "1";
 	console.log("done");
 }
 
