@@ -99,6 +99,9 @@ input[type=button] {
 
 #valScoreContainer {
 	padding:50px;
+	opacity:0;
+	-webkit-transition: opacity 0.5s;/* Safari */
+    transition: opacity 0.5s;
 }
 
 #valPercentage {
@@ -129,6 +132,9 @@ input[type=button] {
 	width:100%;
 	text-align:center;
 	margin-bottom:50px;
+	opacity:0;
+	-webkit-transition: opacity 0.5s;/* Safari */
+    transition: opacity 0.5s;
 }
 
 #valCategories td {

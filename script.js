@@ -22,9 +22,13 @@ var genGenerate;
 var genPassword;
 var valContent;
 var valInput;
+var valScoreContainer;
 var valPercentage;
 var valScoreBarInner;
+var valCategories;
 var valLength;
+var valVariety;
+var valPatterns;
 var valFixes;
 var memContent;
 var memInput;
@@ -64,8 +68,10 @@ function onLoad() {
 	genPassword = document.getElementById("genPassword");
 	valContent = document.getElementById("valContent");
 	valInput = document.getElementById("valInput");
+	valScoreContainer = document.getElementById("valScoreContainer");
 	valPercentage = document.getElementById("valPercentage");
 	valScoreBarInner = document.getElementById("valScoreBarInner");
+	valCategories = document.getElementById("valCategories");
 	valLength = document.getElementById("valLength");
 	valVariety = document.getElementById("valVariety");
 	valPatterns = document.getElementById("valPatterns");
@@ -196,6 +202,8 @@ function valAnalyze() {
 		valPercentage.style.color = "#00CC00";
 	}
 	valPercentage.innerHTML = score + "%";
+	valScoreContainer.style.opacity = 1;
+	valCategories.style.opacity = 1;
 	console.log("done");
 }
 
