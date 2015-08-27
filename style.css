@@ -93,23 +93,27 @@ input[type=button] {
 	font-family: "Roboto", sans-serif;
 }
 
+#genPassword {
+	font-size:2em;
+}
+
 #valInput {
 	text-align: center;
 }
 
-#valScoreContainer {
+#valScoreContainer, #genScoreContainer {
 	padding:50px;
 	opacity:0;
 	-webkit-transition: opacity 0.5s;/* Safari */
     transition: opacity 0.5s;
 }
 
-#valPercentage {
+#valPercentage, #genPercentage {
 	font-size:4.5em;
 	text-shadow: 2px 2px 8px #000000;
 }
 
-#valScoreBar {
+#valScoreBar, #genScoreBar {
 	height:6px;
 	width:250px;
 	background-color: #AAAAAA;
@@ -117,7 +121,7 @@ input[type=button] {
 	display:inline-block;
 }
 
-#valScoreBarInner {
+#valScoreBarInner, #genScoreBarInner {
 	height:100%;
 	width:100%;
 	border-radius: 6px;
@@ -127,7 +131,7 @@ input[type=button] {
     background: linear-gradient(to right,#CC2200 150px,#CCCC00 175px,#CCCC00 200px,#00CC00 250px); /* Standard syntax (must be last) */
 }
 
-#valCategories {
+#valCategories, #genCategories {
 	border:none;
 	width:100%;
 	text-align:center;
@@ -137,16 +141,13 @@ input[type=button] {
     transition: opacity 0.5s;
 }
 
-#valCategories td {
+#valCategories td, #genCategories td {
 	width:33.33%;
-}
-
-#valCategories td { 
-    position:relative; 
+	position:relative; 
     z-index:24;
 }
 
-#valCategories td span {
+#valCategories td span, #genCategories td span {
 	display: block;
 	opacity:0;
 	background-color: #555555;
@@ -156,7 +157,7 @@ input[type=button] {
 	position:absolute;
 }
 
-#valCategories td:hover span { 
+#valCategories td:hover span, #genCategories td:hover span { 
 	opacity:1;
 	bottom:0;
 	left:15%;
@@ -167,18 +168,18 @@ input[type=button] {
 }
 
 @media (min-width: 500px) and (max-width: 650px) {
-	#valCategories td img {
+	#valCategories td img, #genCategories td img {
 		max-width:150px;
 	}
 }
 
 @media (min-width: 300px) and (max-width: 500px) {
-	#valCategories td img {
+	#valCategories td img, #genCategories td img {
 		max-width:75px;
 	}
 }
 
-#valFixes {
+#valFixes, #genFixes {
 	color:#CC2200;
 }
 
@@ -269,6 +270,7 @@ input[type=button] {
 #about h2, #aboutInformation h3 {
 	padding-bottom:0;
 	margin-bottom:-0.5em;
+	color:#AAAAAA;
 }
 
 #about:hover {
@@ -276,11 +278,15 @@ input[type=button] {
 	cursor:pointer;
 }
 
+#about:focus {
+	outline:none;
+}
+
 #aboutInformation {
 	max-height:0;
 	overflow-y:hidden;
-	-webkit-transition: max-height 3s ease-out; /* Safari */
-    transition: max-height 3s ease-out;
+	-webkit-transition: max-height 0.01s ease-out; /* Safari */
+    transition: max-height 0.01s ease-out;
 }
 
 #aboutInformation a {

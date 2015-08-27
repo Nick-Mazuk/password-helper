@@ -3,6 +3,7 @@
 <head>
 	<title>Password Helper</title>
 	<script src="script.js"></script>
+	<script src="smoothScroll.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
@@ -25,7 +26,7 @@
 				<input type="checkbox" id="genPunctuation" value="Punctuation"><label for="genPunctuation">Punctuation</label><br>
 				<input type="checkbox" id="genOtherNonalphanumericCharacters" value="OtherNonaplhanumericCharacters"><label for="genOtherNonalphanumericCharacters">Other Nonaplhanumeric Characters</label><br>
 				<!--<input type="checkbox" id="genDiacriticalMarks" value="DiacriticalMarks"><label for="genDiacriticalMarks">Diacritical Marks</label><br>-->
-				<input type="checkbox" id="genCustomCharCheck" value="CustomCharCheck"><input type="text" id="genCustomChar" placeholder="Custom Characters" onchange="genCustomCharChange();"><br><br>
+				<input type="checkbox" id="genCustomCharCheck" value="CustomCharCheck"><input type="text" id="genCustomChar" placeholder="Custom Characters" oninput="genCustomCharChange();"><br><br>
 				Input the length of your desired password:<br>
 				Minimum Length: <input type="text" id="genMin" placeholder="10"><br>
 				Maximum Length: <input type="text" id="genMax" placeholder="16"><br>
@@ -34,6 +35,31 @@
 				<div class="centerWrapper">
 					<div id="genPassword"></div>
 				</div>
+
+				<div id="genScoreContainer" class="centerWrapper">
+					<div id="genPercentage">78%</div>
+					<div id="genScoreBar"><div id="genScoreBarInner"></div></div>
+				</div>
+				<table id="genCategories">
+					<tr>
+						<td>
+							<div id="genLength">
+								<img src="Pictures/length.png"><br>Length: 60%<span>Tests the length of the password. The longer the password, generally the more secure the password.</span>
+							</div>
+						</td>
+						<td>
+							<div id="genVariety">
+								<img src="Pictures/variety.png"><br>Variety: 80%<span>Tests to make sure there are a variety of types of characters. The more variety, generally the more secure the password.</span>
+							</div>
+						</td>
+						<td>
+							<div id="genPatterns">
+								<img src="Pictures/patterns.png"><br>Patterns: 100%<span>Tests for known patterns and common passwords. The more patterns, generally the less secure the password.</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div id="genFixes"></div>
 			</div>
 			<div id="valContent" class="content">
 				<div class="centerWrapper">
@@ -92,13 +118,25 @@
 		</div>
 		<div id="footer">
 			<i>Note: No information about your password or any other personal information is stored anywhere. Simply leaving or refreshing the page will delete all information generated and inputed.</i>
-			<div id="about"><h2>About</h2></div>
+			<a href="#about" id="about" style="text-decoration:none;color:#999999"><h2>About</h2></a>
 			<div id="aboutInformation">
 				<p>By now you have probably heard of the importance of a secure password, and while there are many sites that tell you how to create a password, few if any help you actually make and learn the password using secure and safe programming. This site is designed to create, validate and help you memorize your passwords to ensure that your password, and more importantly your account, is secure. In addition, the entirety of the code for this site is available for viewing on <a href="https://github.com/Nick-Mazuk/password-helper">Github</a> so you can check to make sure nothing malicious is happening.</p>
 				<h3>Generate</h3>
-				<p></p>
+				<p>If you ever have trouble making a password, the Generate section will help. From the given inputs provided in this section, a unique password will automatically be generated and analyzed. If a loggin does not accept certain characters, or if you wish to use characters other than the norm, this section will allow you to do so. Simply select the check marks for the character sets you wish to use, and those character sets will automatically be used. All of the character sets are defined as follows:</p>
+				<ul>
+					<li>Alphabet: All letters A-Z in both upper case and lower case</li>
+					<li>Numbers: The digits 0-9</li>
+					<li>Punctuation: Standard punctuation marks !&;:'",.()?</li>
+					<li>Other Nonaplhanumeric Characters: `~@#$%^*-+=|\{}[]&lt;&gt;/</li>
+				</ul>
+				<p>After generating the password, it will instantly be analyzed using the same process as the Validate section to ensure that the password you choose is a strong password.</p>
 				<h3>Validate</h3>
-				<p></p>
+				<p>Not sure if your password is strong? The Validate section can instantly evaluate the strength of your password to determine its strength. Three key requirements are checked: the length, the variety of the characters, and patterns the password may have.</p>
+				<p>The length requirement ensures that the password is long enough to provide strength. Passwords larger than 10 characters meet this requirement.</p>
+				<p>The variety of characters requirement ensures that there is a mix of character types throughout the password. Simply put, a hacker has a greater chance of finding a password with just lowercase letters&mdash;such as abfchersul&mdash;than one of mixed characters, such as a&amp;3lIP)2;A@.</p>
+				<p>Patterns make a hackers life much easier. Therefore, minimizing the number of patterns in a password helps strength temendously. The patterns requirement checks the top 20,000 used words according to <a href="https://books.google.com/ngrams/info">Google's trillion word corpus</a>, the <a href="https://en.wikipedia.org/wiki/Leet">leet speak</a> of each of those 20,000 words, and crossreferences the <a href="https://uwnthesis.wordpress.com/2012/08/30/top-10000-passwords-are-used-by-98-8-of-all-users/">top 10,000 passwords</a> which make up 98.8% of all passwords.</p>
+				<p>Using each of these requirements, a score is calculated for the strength of your password.</p>
+				<p><i>Note: This tests the strength of a password. Even a strong password has the ability to be hacked with enough time. Therefore, a score of 100% does not imply that you account cannot be hacked, it means that your password is about as strong as it can be.</i></p>
 				<h3>Memorize</h3>
 				<p>While there are many services that will help manage your passwords, and while you can write it down, neither are as secure as simply memorizing your password as hackers can hack into those services or possibly take your written list of passwords. While neither of these scenarios are likely, they are possible. With the technology of today, however, it is impossible for someone to take your password from your head unless you willingly give it to them. That is why this site has developed a way to help you memorize your passwords.</p>
 				<p>There are 3 levels that you can choose from as you type your passwords. Easy will let you see what you type as well as show you what you missed. Medium will hide what you are typing like a normal login but will still tell you what you missed. On hard, it is like an actual login which will only explain if the password is correct or incorrect.</p>
