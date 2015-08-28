@@ -296,3 +296,11 @@ input[type=button] {
 #aboutInformation a:hover {
 	color:#777777;
 }
+
+#securityEmphasis {
+	border-left:3px solid #CC2200;
+	border-right:3px solid #CC2200;
+	text-align:center;
+	padding:12px 0;
+	font-size:1.2em;
+}

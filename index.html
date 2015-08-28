@@ -3,6 +3,7 @@
 <head>
 	<title>Password Helper</title>
 	<script src="script.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src="smoothScroll.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -121,6 +122,11 @@
 			<a href="#about" id="about" style="text-decoration:none;color:#999999"><h2>About</h2></a>
 			<div id="aboutInformation">
 				<p>By now you have probably heard of the importance of a secure password, and while there are many sites that tell you how to create a password, few if any help you actually make and learn the password using secure and safe programming. This site is designed to create, validate and help you memorize your passwords to ensure that your password, and more importantly your account, is secure. In addition, the entirety of the code for this site is available for viewing on <a href="https://github.com/Nick-Mazuk/password-helper">Github</a> so you can check to make sure nothing malicious is happening.</p>
+				<h3>Security and Technology of This Site</h3>
+				<p>You are likely here because you care about your password and your account's safety. I believe in that, too. Therefore, this site is designed to keep your password safe. I understand that inputting your password on a foreign site can be nerveracking, but the site is coded so nothing malicious can happen to your password while on this site. And if you wish to validate that, you may look at the entire source code on <a href="https://github.com/Nick-Mazuk/password-helper">Github</a> or use "<a href="http://cms.about.com/od/cms-basics/a/Get-The-Inspect-Element-Tool-For-Your-Browser.htm">Inspect Element</a>" on a modern web browser.</p>
+				<p>This site uses only three languages: HTML, CSS, and Javascript. HTML and CSS control the content and its presentation. More specifically, HTML is a markup language, while CSS is a stylesheet language. That means that neither of them do anything. Javascript, on the otherhand, actually does stuff. All the functionality throughout this entire page is run with Javascript. Javascript has one unique feature: it is client-side. That means that all script run with Javascript is purely done on the device you are using right now. Without an external library meant for interaction with a server, such as <a href="https://nodejs.org/">Node.js</a>, all information you input stays on your device. And because no such external library is used, simply refreshing or leaving the page will delete all information you have inputted.</p>
+				<div id="securityEmphasis"><i>"simply refreshing or leaving the page will delete all information you have inputted"</i></div>
+				<p>To learn more about what Javascript can't do, view <a href="http://stackoverflow.com/a/4298109">this answer on Stack Overflow</a>.</p>
 				<h3>Generate</h3>
 				<p>If you ever have trouble making a password, the Generate section will help. From the given inputs provided in this section, a unique password will automatically be generated and analyzed. If a loggin does not accept certain characters, or if you wish to use characters other than the norm, this section will allow you to do so. Simply select the check marks for the character sets you wish to use, and those character sets will automatically be used. All of the character sets are defined as follows:</p>
 				<ul>
@@ -133,15 +139,13 @@
 				<h3>Validate</h3>
 				<p>Not sure if your password is strong? The Validate section can instantly evaluate the strength of your password to determine its strength. Three key requirements are checked: the length, the variety of the characters, and patterns the password may have.</p>
 				<p>The length requirement ensures that the password is long enough to provide strength. Passwords larger than 10 characters meet this requirement.</p>
-				<p>The variety of characters requirement ensures that there is a mix of character types throughout the password. Simply put, a hacker has a greater chance of finding a password with just lowercase letters&mdash;such as abfchersul&mdash;than one of mixed characters, such as a&amp;3lIP)2;A@.</p>
+				<p>The variety of characters requirement ensures that there is a mix of character types throughout the password. Simply put, a hacker has a greater chance of finding a password with just lowercase letters&mdash;such as "abfchersul"&mdash;than one of mixed characters, such as "a&amp;3lIP)2;A@".</p>
 				<p>Patterns make a hackers life much easier. Therefore, minimizing the number of patterns in a password helps strength temendously. The patterns requirement checks the top 20,000 used words according to <a href="https://books.google.com/ngrams/info">Google's trillion word corpus</a>, the <a href="https://en.wikipedia.org/wiki/Leet">leet speak</a> of each of those 20,000 words, and crossreferences the <a href="https://uwnthesis.wordpress.com/2012/08/30/top-10000-passwords-are-used-by-98-8-of-all-users/">top 10,000 passwords</a> which make up 98.8% of all passwords.</p>
 				<p>Using each of these requirements, a score is calculated for the strength of your password.</p>
 				<p><i>Note: This tests the strength of a password. Even a strong password has the ability to be hacked with enough time. Therefore, a score of 100% does not imply that you account cannot be hacked, it means that your password is about as strong as it can be.</i></p>
 				<h3>Memorize</h3>
 				<p>While there are many services that will help manage your passwords, and while you can write it down, neither are as secure as simply memorizing your password as hackers can hack into those services or possibly take your written list of passwords. While neither of these scenarios are likely, they are possible. With the technology of today, however, it is impossible for someone to take your password from your head unless you willingly give it to them. That is why this site has developed a way to help you memorize your passwords.</p>
 				<p>There are 3 levels that you can choose from as you type your passwords. Easy will let you see what you type as well as show you what you missed. Medium will hide what you are typing like a normal login but will still tell you what you missed. On hard, it is like an actual login which will only explain if the password is correct or incorrect.</p>
-				<h3>Technology and Security of This Site</h3>
-				<p></p>
 			</div>
 		</div>
 	</div>
