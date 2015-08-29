@@ -1,23 +1,39 @@
-$(document).ready(function() {
-	function filterPath(string) {
-		return string
-			.replace(/^\//,'')  
-			.replace(/(index|default).[a-zA-Z]{3,4}$/,'')  
-			.replace(/\/$/,'');
+window.addEventListener("DOMContentLoaded",function(){onLoad2();});
+
+function onLoad2() {
+	var about = document.getElementById("about");
+	about.addEventListener("mousedown",function(){scrollTo(about.getBoundingClientRect().top,750, true);});
+}
+
+function scrollTo(to, duration, isElement) {
+	var start = document.documentElement.scrollTop || document.body.scrollTop,
+		change = to - start,
+		currentTime = 0,
+		increment = 20;
+	
+	if(isElement) {
+		change += start;
 	}
-	$('a[href*=#]').each(function() {
-		if ( filterPath(location.pathname) == filterPath(this.pathname)
-		&& location.hostname == this.hostname
-		&& this.hash.replace(/#/,'') ) {
-			var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
-			var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
-			if ($target) {
-				var targetOffset = $target.offset().top;
-				$(this).click(function() {
-					$('html, body').animate({scrollTop: targetOffset}, 400);
-					return false;
-				});
-			}
+
+	var animateScroll = function(){        
+		currentTime += increment;
+		var val = Math.easeInOutQuad(currentTime, start, change, duration);
+		document.body.scrollTop = val;
+		document.documentElement.scrollTop = val;
+		if(currentTime < duration) {
+			setTimeout(animateScroll, increment);
 		}
-	});
-});
+	};
+	animateScroll();
+}
+
+//t = current time
+//b = start value
+//c = change in value
+//d = duration
+Math.easeInOutQuad = function (t, b, c, d) {
+	t /= d/2;
+	if (t < 1) return c/2*t*t + b;
+	t--;
+	return -c/2 * (t*(t-2) - 1) + b;
+};
