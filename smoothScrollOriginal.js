@@ -1,12 +1,44 @@
-function scrollTo(to, duration, isElement) {
+function scrollTo(to, duration) {
 	var start = document.documentElement.scrollTop || document.body.scrollTop,
 		change = to - start,
 		currentTime = 0,
 		increment = 20;
-	
-	if(isElement) {
-		change += start;
-	}
+
+	var animateScroll = function(){        
+		currentTime += increment;
+		var val = Math.easeInOutQuad(currentTime, start, change, duration);
+		document.body.scrollTop = val;
+		document.documentElement.scrollTop = val;
+		if(currentTime < duration) {
+			setTimeout(animateScroll, increment);
+		}
+	};
+	animateScroll();
+}
+
+function scrollToElement(to, duration) {
+	var start = document.documentElement.scrollTop || document.body.scrollTop,
+		change = to,
+		currentTime = 0,
+		increment = 20;
+
+	var animateScroll = function(){        
+		currentTime += increment;
+		var val = Math.easeInOutQuad(currentTime, start, change, duration);
+		document.body.scrollTop = val;
+		document.documentElement.scrollTop = val;
+		if(currentTime < duration) {
+			setTimeout(animateScroll, increment);
+		}
+	};
+	animateScroll();
+}
+
+function scrollTop(duration) {
+	var start = document.documentElement.scrollTop || document.body.scrollTop,
+		change = 0 - start,
+		currentTime = 0,
+		increment = 20;
 
 	var animateScroll = function(){        
 		currentTime += increment;
